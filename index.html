@@ -15,6 +15,7 @@
 
 <link rel="stylesheet" type="text/css" href="reset.css" />
 <link rel="stylesheet" type="text/css" href="style.css" />
+<script src="http://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 </head>
 <body onload='showtimes()'>
     <div id="wrapper">
@@ -838,5 +839,16 @@ function showtimes() {
             <p>254 Country Flags HTML Page generated using <b>mygallery.sh</b> script written by <b>George Liu (eva200)</b> <a href="https://centminmod.com" target="_blank" rel="noopener">centminmod.com</a>. Images scaled using ImageMagicK &amp; Thumbnails optimised by <a href="http://sourceforge.net/p/pngnqs9/wiki/pngnq-s9%20Command%20Line%20Help/" target="_blank" rel="noopener">pngnq-s9</a>.</p>
         </div>
     </div>
+<script>
+$('img').each(function() {
+    var src = $(this).attr('src');
+    if (src.indexOf('?') > -1) {
+        src = src + '&time=' + Date.now();
+    } else {
+        src = src + '?time=' + Date.now();
+    }
+    $(this).attr('src', src);
+});
+</script>
 </body>
 </html>
